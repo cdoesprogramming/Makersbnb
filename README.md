@@ -79,6 +79,11 @@ I want confirmation of the booking
 - User can list a space
 - User can see that space
 
+<br>
+
+----
+<br>
+
 ## Tickets for our MVP
 
 ```
@@ -87,13 +92,8 @@ As a User
 So that I can rent out my space 
 I want to be able to sign up and then create a listing
 ```
-
-``` 
-2:
-As a User
-So that I can rent out more than one space
-I want to be able to list multiple spaces at a time
-```
+**Ticket 1:** Sign up to the website [Jane & Shirley]
+**Ticket 2:** Create a listing [Camilla & Chloe]
 
 ```
 3:
@@ -101,3 +101,13 @@ As a User
 So that I can advertise my space
 I'd like to be able to give it a name, description and price per night
 ```
+**Ticket 3:** Add on detail functionality for the listing [database]
+
+``` 
+2:
+As a User
+So that I can rent out more than one space
+I want to be able to list multiple spaces at a time
+```
+**Ticket 4:** 
+
