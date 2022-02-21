@@ -10,6 +10,6 @@ def setup_test_database
 
   # Clear the user table
 
-  connection.exec("TRUNCATE user;")
+  connection.exec("TRUNCATE users;")
 
 end

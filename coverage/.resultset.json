@@ -1,0 +1,99 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/create_listing_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/create_user_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/testing_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/user_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/shirleymacfarlane/Projects/Makersbnb/lib/user.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/database_helpers.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1645477568
+  }
+}
