@@ -7,7 +7,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/' do
-    
+    "Hello, world"
   end
 
   run! if app_file == $0
