@@ -109,5 +109,6 @@ As a User
 So that I can rent out more than one space
 I want to be able to list multiple spaces at a time
 ```
-**Ticket 4:** 
+**Ticket 4:**  
+To be confirmed
 
