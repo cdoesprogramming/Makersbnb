@@ -1,0 +1,205 @@
+
+<h2>Chitter Chatter</h2>
+<br>
+<% if @userloggedin %>
+<div class="field" id="sign_in" style="display:none">
+<% else %> 
+<div class="field" id="sign_in" style="display:block"> 
+<% end %>
+  <span class="alignleft">
+    <h4 xclass="centered" style="padding:30px; width:400px; text-align:center;"> 
+      Chitter account holders - please Sign in 
+      <div>
+      <form action="/signin" method="post">
+        <p style="text-align:left; padding-left:70px; padding-right:85px;">
+          <span style="text-align:left;">User name:</span>
+          <span style="text-algin:right"><input type="text" name="username" ></span>
+        </p>
+        <p style="text-align:left; padding-left:70px; padding-right:85px;">
+          <span style="text-align:left;">Password:&nbsp;&nbsp;</span>   
+          <span style="text-algin:right"><input type="text" name="password"></span>
+        </p>
+        <% if @signin_error %>
+          <p id="signerr" class="blank_row"><%= @signin_err_mg %></p>
+        <% else %> 
+          <p class="blank_row"></p>
+        <% end %> 
+        <input class="user_button" type="submit" value="Sign In">
+      </form>
+      </div>
+      <div>
+      <br><br>
+      <p>New to Chitter - please Register below</p>
+    
+      </div>
+      <div>
+        <form action="/register" method="post">
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span style="text-algin:right"><input type="text" name="newname"></span>
+          </p>
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span style="text-algin:right"><input type="text" name="newemail"></span>
+          </p>
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">User name:</span>
+            <span style="text-algin:right"><input type="text" name="newusername"></span>
+          </p>
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">Password:&nbsp;&nbsp;</span>   
+            <span style="text-algin:right"><input type="text" name="newpassword"></span>
+          </p>
+          <p></p>
+          <input class="user_button" type="submit" value="Register">
+        </form>
+      </div>
+    </h4>
+  </span>
+</div>
+<% if @userloggedin %>
+<div class="field" id="sign_out" style="display:block">
+<% else %> 
+<div class="field" id="sign_out" style="display:none"> 
+<% end %>
+  <span class="alignleft">
+    <h4 xclass="centered" style="padding:30px; width:400px; text-align:center;">
+
+    Welcome to Chitter <%= @currentuser %>
+    <br><br>
+    <div class="peep">    
+     
+        <p class="alignleft"><%= @currentuser %></p>
+        <div>
+          <p>
+          <textarea class="text; peep-text" id="confirmationText"  name="confirmationText" rows="6" cols="30"  maxlength="140" wrap="soft" form="confirmationForm"> </textarea>
+          </p>
+          </div>
+          <p></p>
+          <p></p>
+          <br><br>  
+          <form action="/postpeep" id="confirmationForm" name="confirmationForm"  method="post">
+          <input class="peep_button" type="submit" value="Post Peep">
+          </form>
+          <br><br>
+          <p></p>
+          <p></p>
+        </div>
+      
+    <div>
+      <br><br>
+      <p></p>
+    </div>
+    <div>
+      <form action="/signout" method="post">
+        <input class="user_button" type="submit" value="Sign out">
+      </form>
+    </div>
+    </h4>
+  </span>
+</div>
+<span class="alignright">
+  <h4 xclass="centered" style="padding-left:30px; padding-top:38px; width:400px; text-align:center;">
+    <div>
+      <% @peeps.each do |peep| %>
+        <div class="peep">
+          <span class="alignleft"><%= peep.username %></span>
+          <span class="alignright" style="font-weight: normal;"><%= peep.date %><br></span>
+          <span style="text-align: center;"><br></span>
+          <br>
+          <span class="peep_body" style="text-align: center;" rows="6" cols="30"  maxlength="140" wrap="soft"><%= peep.details %></span>
+          <br>
+        </div> 
+        <br> 
+      <% end %>
+    </div>
+  </h4>
+</span>
+
+
+
+<style>
+h2 {
+  text-align: center; 
+}
+
+.user_button {
+  border-radius: 7px;
+  width: 80px;
+  height: 32px;
+  background-color: #ffffcc;
+}
+
+.peep-text { 
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px; 
+  border-radius: 7px;
+  height: 120px; 
+  width : 300px; }
+
+.peep {
+  background-color: #ffe6ff;
+  border-radius: 15px;
+  padding: 15px; 
+}
+
+.peep_body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.peep_button {
+  border-radius: 7px;
+  width: 80px;
+  height: 32px;
+  background-color: #ffccff;
+}
+
+.user_button {
+  border-radius: 7px;
+  width: 80px;
+  height: 32px;
+  background-color: #ffffcc;
+}
+
+.centered {
+    margin: 0 auto;
+    text-align: left;
+    width: 800px;
+}
+
+.alignleft {
+    float: left;
+    width:50.00%;
+    text-align:left;
+}
+
+.aligncenter {
+    float: left;
+}
+
+.alignright {
+    float: right;
+    width:50.00%;
+    text-align:right;
+}
+
+.blank_row
+{
+    height: 12px !important; /* overwrites any other rules */
+    background-color: #FFFFFF;
+    color: #ff0066;
+}
+</style>
+
+<script>
+function myFunction() {
+  document.getElementById("signerr").innertexxt = "Hello World";
+}
+
+function foo() {
+    window.signin_error = false;
+    window.signin_err_msg = "";
+}
+</script>
