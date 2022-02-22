@@ -19,5 +19,22 @@ class User
          )
     User.new(id: result[0]['id'], name: result[0]['name'],  email: result[0]['email'], password: result[0]['password'])
   end
- 
+
+   def self.find(email:, password:)
+    #return nil unless id
+    result = DatabaseConnection.query(
+      "SELECT * FROM bnbuser WHERE email = $1 AND password = $2" , [email, password]
+    )
+
+    p result
+
+    User.new(
+      id: result[0]['id'],
+      name: result[0]['name'],
+      email: result[0]['email'],
+      password: result[0]['password']
+    )
+
+  end
+
 end
