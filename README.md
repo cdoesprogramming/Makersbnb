@@ -1,12 +1,15 @@
-Add a README that has:
-A high level description of the project specification.
-A user stories section (leave it blank for now).
-
-
 # Week 5 - MakersBnB**
 We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
 
-Headline specifications
+## How to set up a development database
+1. Connect to ```psql```
+2. Create a database using the ```psql``` command ```CREATE DATABASE makersbnb```;
+3. Connect to the database using the ```psql``` command ```\c makersbnb;```
+4. Run the query we saved in the file: ```./db/migrations/01_create_listings_table.sql```
+
+----
+
+## Headline specifications
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
 - Users should be able to name their space, provide a short description of the space, and a price per night.
@@ -111,3 +114,9 @@ I want to be able to list multiple spaces at a time
 ```
 **Ticket 4:** 
 
+----
+
+
+### Footer links:
+Photo by <a href="https://unsplash.com/@rpnickson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Roberto Nickson</a> on <a href="https://unsplash.com/s/photos/woodland-cottage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  

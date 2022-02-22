@@ -7,7 +7,17 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/' do
-    "Hello, world"
+    erb :index
+  end
+
+  get '/listings' do
+    erb :new_listing
+  end
+
+  post '/listings' do
+    @name = params[:name]
+    @image = params[:image]
+    redirect '/'
   end
 
   run! if app_file == $0
