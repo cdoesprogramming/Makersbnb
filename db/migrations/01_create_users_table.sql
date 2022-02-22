@@ -1,0 +1,7 @@
+# CREATE DATABASE makersbnb_manager
+CREATE TABLE bnbuser(
+id SERIAL PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+email VARCHAR(60) UNIQUE,
+password VARCHAR(20)  NOT NULL
+);

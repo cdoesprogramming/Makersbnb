@@ -11,7 +11,8 @@ class Makersbnb < Sinatra::Base
     erb :'signin/home'
   end
 
-  post '/mocklist' do
+  post '/signin' do
+    
     erb :'signin/signout'
   end  
 
