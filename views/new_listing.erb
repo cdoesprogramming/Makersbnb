@@ -1,13 +1,7 @@
-<form action='/listings' method='post' enctype="multipart/form-data">
-  <label for='name'>Name:</label><br><br>
+<%= @listing %>
+
+<form action='/listings' method='post'>
+  <label for='name'>Name of property:</label><br><br>
   <input type='text' name='name'>
-  <label>Upload an image:</label>
-  <input type="file" name="image">
   <input type='submit' value='Submit'>
 </form>
-
-<%# <form action="upload.php" method="post" enctype="multipart/form-data">
-  <label>Upload an image:</label>
-  <input type="file" name="image">
-  <input type="submit" name="submit" value="Upload">
-</form> %>

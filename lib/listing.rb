@@ -1,6 +1,5 @@
 require 'pg'
 
-
 class Listing
   def self.create
     if ENV['ENVIRONMENT'] == 'test'
@@ -9,6 +8,6 @@ class Listing
       connection = PG.connect(dbname: 'makersbnb')
     end
 
-    connection.exec("INSERT INTO listings (name, photo, description, price) VALUES ('#{@name}', 'bytea('/public/images/yellow.jpg')', NULL, NULL);")
+    connection.exec("INSERT INTO listings (name, description, price) VALUES ('#{@name}', NULL, NULL);")
   end
 end
