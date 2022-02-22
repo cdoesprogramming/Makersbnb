@@ -10,4 +10,3 @@
 #     expect(page).to have_content 'Woodland Cottage'
 #     expect(page).to have_content './public/images'
 #   end
-# end

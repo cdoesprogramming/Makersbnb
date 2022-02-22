@@ -14,13 +14,21 @@
           null,
           null,
           null,
-          null,
           null
         ]
       },
       "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/create_user_spec.rb": {
         "lines": [
-
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
         ]
       },
       "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/testing_spec.rb": {
@@ -64,6 +72,6 @@
         ]
       }
     },
-    "timestamp": 1645540921
+    "timestamp": 1645542184
   }
 }
