@@ -7,13 +7,12 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/' do
-    # "Hello, world"
     erb :'signin/home'
   end
 
-  post '/signin' do
-    
-    erb :'signin/signout'
+  post '/listings' do
+
+    erb :'signin/mocklistings'
   end  
 
   run! if app_file == $0
