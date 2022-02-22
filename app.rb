@@ -1,5 +1,5 @@
 require 'sinatra/base'
-#require 'sinatra/flash'
+require 'sinatra/flash'
 require "sinatra/reloader"
 require 'pg'
 require 'uri'
@@ -12,16 +12,23 @@ class Makersbnb < Sinatra::Base
   end
 
   enable :sessions
-  #, :method_override
+  register Sinatra::Flash
 
   get '/' do
     erb :'user/home'
   end
 
-  post '/createuser' do
-    session[:message] = params[:newemail]
-    user = User.create(name: params[:newname], email: params[:newemail], password: params[:newpassword])
-    redirect '/listings'
+   post '/createuser' do
+   # user = User.find(email: params[:newemail], password: params[:newpassword])
+    user = User.findemail(email: params[:newemail])
+    if user == nil
+      session[:message] = params[:newemail]
+      user = User.create(name: params[:newname], email: params[:newemail], password: params[:newpassword])
+      redirect '/listings'
+    else
+      flash[:notice] = 'Email already exists'
+      redirect '/'
+    end
   end
 
   get '/listings' do
@@ -31,18 +38,18 @@ class Makersbnb < Sinatra::Base
 
   get '/signin' do
     erb :'user/signin'
-
   end  
 
   get '/finduser' do
     user = User.find(email: params[:email], password: params[:password])
-    p user
     if user == nil
-      session[:message] = "USER NOT FOUND"
-      else
-        session[:message] = user.email
-      end
+     flash[:notice] = 'Email does not exist or incorrect password given'
+     redirect '/signin'
+    else
+      session[:message] = user.email
       redirect '/listings'
+    end
+
   end  
 
   run! if app_file == $0

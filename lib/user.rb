@@ -1,4 +1,3 @@
-#require 'bcrypt'
 require_relative './database_connection'
 require 'pg'
 
@@ -15,15 +14,32 @@ class User
 
   def self.create(name:, email:, password:)
     result = DatabaseConnection.query(
-           "INSERT INTO bnbuser (name, email, password) VALUES($1, $2, $3) RETURNING id, name, email, password", [name, email, password]
+          "INSERT INTO bnbuser (name, email, password) VALUES($1, $2, $3) RETURNING id, name, email, password", [name, email, password]
          )
     User.new(id: result[0]['id'], name: result[0]['name'],  email: result[0]['email'], password: result[0]['password'])
   end
 
-   def self.find(email:, password:)
+  def self.find(email:, password:)
 
     result = DatabaseConnection.query(
       "SELECT * FROM bnbuser WHERE email = $1 AND password = $2" , [email, password]
+    )
+
+    if result.num_tuples.zero?
+      nil
+    else
+      User.new(
+        id: result[0]['id'],
+        name: result[0]['name'],
+        email: result[0]['email'],
+        password: result[0]['password']
+      )
+    end  
+  end
+
+  def self.findemail(email:)
+    result = DatabaseConnection.query(
+      "SELECT * FROM bnbuser WHERE email = $1" , [email]
     )
 
     if result.num_tuples.zero?
