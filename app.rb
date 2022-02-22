@@ -29,5 +29,13 @@ class Makersbnb < Sinatra::Base
     erb :'user/mocklistings'
   end  
 
+  get '/signin' do
+    erb :'user/signin'
+  end  
+
+  get '/finduser' do
+    
+  end  
+
   run! if app_file == $0
 end
