@@ -13,11 +13,11 @@
       <form action="/finduser" method="get">
         <p style="text-align:left; padding-left:70px; padding-right:85px;">
           <span style="text-align:left;">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span style="text-algin:right"><input type="text" name="email" ></span>
+          <span style="text-algin:right"><input type="email" name="email" required></span>
         </p>
         <p style="text-align:left; padding-left:70px; padding-right:85px;">
           <span style="text-align:left;">Password:</span>   
-          <span style="text-algin:right"><input type="password" name="password"></span>
+          <span style="text-algin:right"><input type="password" name="password" required></span>
         </p>
         <% if @signin_error %>
           <p id="signerr" class="blank_row"><%= @signin_err_mg %></p>

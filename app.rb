@@ -31,10 +31,18 @@ class Makersbnb < Sinatra::Base
 
   get '/signin' do
     erb :'user/signin'
+
   end  
 
   get '/finduser' do
-    
+    user = User.find(email: params[:email], password: params[:password])
+    p user
+    if user == nil
+      session[:message] = "USER NOT FOUND"
+      else
+        session[:message] = user.email
+      end
+      redirect '/listings'
   end  
 
   run! if app_file == $0
