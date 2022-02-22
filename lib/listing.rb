@@ -9,6 +9,6 @@ class Listing
       connection = PG.connect(dbname: 'makersbnb')
     end
 
-    connection.exec("INSERT INTO listings (name, photo, description, price) VALUES ('#{@name}', 'bytea('../public/images/yellow.jpg'));")
+    connection.exec("INSERT INTO listings (name, photo, description, price) VALUES ('#{@name}', 'bytea('/public/images/yellow.jpg')', NULL, NULL);")
   end
 end
