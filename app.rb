@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/listing'
 
 class Makersbnb < Sinatra::Base
   configure :development do

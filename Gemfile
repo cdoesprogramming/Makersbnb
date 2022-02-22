@@ -13,6 +13,7 @@ group :development, :test do
   gem 'capybara'
   gem 'webrick'
   gem 'rubocop'
+  gem 'pg'
 end
 
 # gem "rails"
