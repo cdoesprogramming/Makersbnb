@@ -43,57 +43,31 @@
           1,
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/shirleymacfarlane/Projects/Makersbnb/lib/user.rb": {
-        "lines": [
-          1,
-          1,
           null,
           1,
           null,
           1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          0,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
           null,
           null
         ]
       },
       "/Users/shirleymacfarlane/Projects/Makersbnb/spec/database_helpers.rb": {
         "lines": [
-          1,
           null,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1645527773
+    "timestamp": 1645540695
   }
 }

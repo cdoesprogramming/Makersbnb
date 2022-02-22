@@ -1,18 +1,32 @@
 require 'sinatra/base'
-require 'sinatra/reloader'
+#require 'sinatra/flash'
+require "sinatra/reloader"
+require 'pg'
+require 'uri'
+require './lib/user'
+require './database_connection_setup'
 
 class Makersbnb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
+  enable :sessions
+  #, :method_override
+
   get '/' do
-    erb :'signin/home'
+    erb :'user/home'
   end
 
-  post '/listings' do
+  post '/createuser' do
+    session[:message] = params[:newemail]
+    user = User.create(name: params[:newname], email: params[:newemail], password: params[:newpassword])
+    redirect '/listings'
+  end
 
-    erb :'signin/mocklistings'
+  get '/listings' do
+    @user_email = session[:message]
+    erb :'user/mocklistings'
   end  
 
   run! if app_file == $0
