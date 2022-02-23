@@ -2,11 +2,11 @@ require 'pg'
 
 class Listing
 
-  attr_reader :name, :description, :price
+  attr_reader :id, :name, :description, :price
 
-  def initialize(name:, description:, price:)
+  def initialize(id:, name:, description:, price:)
     @name = name
-    @description = descritption
+    @description = description
     @price = price
   end
 
@@ -16,8 +16,8 @@ class Listing
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-
-    connection.exec("INSERT INTO listings (name, description, price) VALUES('#{name}', '#{description}', '#{price}') RETURNING name, description, price")
+    result = connection.exec("INSERT INTO listings (name, description, price) VALUES('#{name}', '#{description}', '#{price}') RETURNING name, description, price;")
+    Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
   end
 
   def self.all
@@ -27,7 +27,8 @@ class Listing
       connection = PG.connect(dbname: 'makersbnb')
     end
     result = connection.exec("SELECT * FROM listings")
-    rseult.map do |listing|
+    result.map do |listing|
       Listing.new(id: listing['id'], name: listing['name'], description: listing['description'], price: listing['price'])
     end
+  end
 end

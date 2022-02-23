@@ -3,6 +3,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'pg'
 require_relative './makersbnb_test_database'
+require './spec/database_helpers'
 
 ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
