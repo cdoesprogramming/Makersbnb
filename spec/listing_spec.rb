@@ -7,6 +7,7 @@ describe Listing do
   describe '#create' do
     it 'allows user to post their listing' do
       listing = Listing.create(name: "Woodland Cottage", description: "Idyllic cottage surrounded by nature", price: "£100pn")
+      p listing.name
       persisted_data = persisted_data(id: listing.id) 
 
       expect(listing).to be_a Listing 
