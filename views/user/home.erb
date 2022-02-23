@@ -4,7 +4,10 @@
   </p>
 <% end %>
 
+
+
 <h2>Makers BNB</h2>
+
 <br>
 <% if @userloggedin %>
 <div class="field" id="sign_in" style="display:none">
@@ -13,12 +16,11 @@
 <% end %>
  
     <h4 class="centered" style="padding:30px; width:400px; text-align:center;"> 
-
-      <div>
-        <form action="/signin" method="get">
-          <input class="user_button" type="submit" value="Sign in">
-        </form
-      </div>
+    <div>
+      <form class="fixed">
+      <a href="/signin">Sign In</a>
+      </form
+     </div>
      
       <p>New to Makers BNB - please Register below</p>
     
@@ -55,6 +57,12 @@ h2 {
   text-align: center; 
 }
 
+.fixed {
+  position: fixed;
+  right: 40;
+  top: 20;
+  background-color: #ffffcc;
+}
 .user_button {
   border-radius: 7px;
   width: 80px;

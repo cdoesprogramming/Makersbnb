@@ -19,7 +19,6 @@ class Makersbnb < Sinatra::Base
   end
 
    post '/createuser' do
-   # user = User.find(email: params[:newemail], password: params[:newpassword])
     user = User.findemail(email: params[:newemail])
     if user == nil
       session[:message] = params[:newemail]
@@ -49,8 +48,12 @@ class Makersbnb < Sinatra::Base
       session[:message] = user.email
       redirect '/listings'
     end
-
-  end  
+  end 
+  
+  get '/signout' do
+    session[:message] = nil
+    redirect '/'
+  end
 
   run! if app_file == $0
 end
