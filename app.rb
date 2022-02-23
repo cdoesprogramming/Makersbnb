@@ -16,9 +16,8 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/listings' do
-    @name = params[:name]
-    @image = params[:image]
-    @listing = Listing.create
+    Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    #@listing = Listing.create
     redirect '/'
   end
 

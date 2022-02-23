@@ -2,3 +2,16 @@
 <form action='/listings'>
   <input type='submit' value='Host'>
 </form><br>
+
+
+
+<ul>
+  <% @listings.each do |name, description, price| %>
+    <li>
+      <a href="<%= listing.name %>">
+        <%= listing.description %>
+        <%= listing.price %>
+      </a>
+    </li>
+  <% end %>
+</ul>
