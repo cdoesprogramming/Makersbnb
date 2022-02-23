@@ -19,7 +19,7 @@ class Makersbnb < Sinatra::Base
   end
 
    post '/createuser' do
-    user = User.findemail(email: params[:newemail])
+   user = User.findemail(email: params[:newemail])
     if user == nil
       session[:message] = params[:newemail]
       user = User.create(name: params[:newname], email: params[:newemail], password: params[:newpassword])

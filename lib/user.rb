@@ -24,7 +24,7 @@ class User
     result = DatabaseConnection.query(
       "SELECT * FROM bnbuser WHERE email = $1 AND password = $2" , [email, password]
     )
-
+    p result.num_tuples
     if result.num_tuples.zero?
       nil
     else
