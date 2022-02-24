@@ -1,3 +1,4 @@
+
 feature 'create listing' do
   scenario 'user can create a new listing' do
     visit('/')
@@ -26,4 +27,4 @@ feature 'Create a listing' do
     expect(page).to have_content ('£100pn')
   end
 end
-    
+
