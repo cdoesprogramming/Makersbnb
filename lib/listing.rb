@@ -1,10 +1,12 @@
 require 'pg'
+require_relative '../lib/listing'
 
 class Listing
 
   attr_reader :id, :name, :description, :price
 
   def initialize(id:, name:, description:, price:)
+    @id = id
     @name = name
     @description = description
     @price = price
@@ -16,8 +18,18 @@ class Listing
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-    result = connection.exec("INSERT INTO listings (name, description, price) VALUES('#{name}', '#{description}', '#{price}') RETURNING id, name, description, price;")
-    Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
+    p "#{name}"
+    result = connection.exec_params("INSERT INTO listings (name, description, price) VALUES($1, $2, $3) RETURNING id, name, description, price;", [name, description, price])
+
+    #result = connection.exec_params("INSERT INTO listings (name, description, price) VALUES('#{name}', '#{description}', '#{price}') RETURNING id, name, description, price;", [name, description, price])
+
+
+    # result = connection.exec_params(
+
+    #     "INSERT INTO bookmarks (url, title) VALUES($1, $2) RETURNING id, title, url;", [url, title]
+    #  )
+    list = Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
+    p list
   end
 
   def self.all
