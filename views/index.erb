@@ -3,14 +3,37 @@
   <input type='submit' value='Host'>
 </form><br>
 
-
-
 <ul>
-  <%= @listings.each do |name, description, price| %>
-    <li>
-    <%= listing.name %>
+  <% @listings.each do |listing| %>
+  <fieldset>
+    <legend><%= listing.name %></legend>
     <%= listing.description %>
-    <%= listing.price %>
-    </li>
+    <%= listing.price %></p></li>
+  </fieldset>
   <% end %>
+</fieldset>
 </ul>
+
+<html>
+<head>
+<style>
+fieldset {
+  background-color: #eeeeee;
+}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+input {
+  margin: 5px;
+}
+</style>
+</head>
+<body>
+
+
+</body>
+</html>

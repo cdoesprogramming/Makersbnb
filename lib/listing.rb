@@ -40,7 +40,7 @@ class Listing
     end
     result = connection.exec("SELECT * FROM listings")
     result.map do |listing|
-      Listing.new(id: listing['id'], name: listing['name'], description: listing['description'], price: listing['price'])
+    Listing.new(id: listing['id'], name: listing['name'], description: listing['description'], price: listing['price'])
     end
   end
 end

@@ -1,11 +1,12 @@
 <%= @listing %>
 
-<form action='/listings' method='post'>
-  <label for='name'>Name of property:</label><br><br>
-  <input type='text' name='name'>
-  <label for='name'>Description:</label><br><br>
-  <input type='text' name='description'>
-  <label for='name'>Price per night:</label><br><br>
-  <input type='text' name='price'>
+<form action='/new_listings' method='post'>
+  <label for='name'>Name of property:</label>
+  <input type='text' name='name'><br><br>
+  <label for='name'>Description:</label>
+  <input type='text' name='description'><br><br>
+  <label for='name'>Price per night:</label>
+  <input type='text' name='price'><br><br>
   <input type='submit' value='Submit'>
 </form>
+

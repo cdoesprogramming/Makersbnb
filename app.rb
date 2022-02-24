@@ -8,6 +8,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/' do
+    @listings = Listing.all
+    p @listings
     erb :index
   end
 
@@ -15,11 +17,13 @@ class Makersbnb < Sinatra::Base
     erb :new_listing
   end
 
-  post '/listings' do
-    @listings = Listing.create(name: params[:name], description: params[:description], price: params[:price])
+  post '/new_listings' do
+    Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    #@listings = Listing.create(name: params[:name], description: params[:description], price: params[:price])
     #@listing = Listing.create
     redirect '/'
   end
+
 
   run! if app_file == $0
 end
