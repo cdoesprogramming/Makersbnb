@@ -1,42 +1,24 @@
-ENV['RACK_ENV'] = 'test'
-
-require_relative './setup_test_database'
-
-ENV['ENVIRONMENT'] = 'test'
-
-# require our Sinatra app file
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
-
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
 require 'pg'
-require_relative './makersbnb_manager_test'
-require './spec/database_helpers'
 require 'simplecov'
 require 'simplecov-console'
+require 'database_helpers'
+require_relative 'setup_test_database'
 
-# tell Capybara about the app class
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Makersbnb
-
-ENV['ENVIRONMENT'] = 'test' 
-
-RSpec.configure do |config|
-  config.before(:each) do
-    makersbnb_manager_test
-  end
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-])
-SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
   end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
@@ -46,8 +28,15 @@ RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::Console,
+  ])
+  SimpleCov.start
 end

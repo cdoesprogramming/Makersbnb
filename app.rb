@@ -54,7 +54,6 @@ class Makersbnb < Sinatra::Base
 
   get '/listings' do
     @listings = Listing.all
-    p @listings
     erb :index
   end
   

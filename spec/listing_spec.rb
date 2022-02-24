@@ -1,6 +1,6 @@
 require './lib/listing.rb'
 require 'pg'
-require_relative './makersbnb_test_database'
+require_relative './setup_test_database'
 require './spec/database_helpers'
 
 describe Listing do
@@ -8,7 +8,7 @@ describe Listing do
     it 'allows user to post their listing' do
       listing = Listing.create(name: "Woodland Cottage", description: "Idyllic cottage surrounded by nature", price: "£100pn")
        
-      persisted_data_listing = persisted_data(id: listing.id) 
+      persisted_data_listing = persisted_data_listing(id: listing.id) 
 
       expect(listing).to be_a Listing 
       expect(listing.id).to eq persisted_data_listing.first['id']
@@ -20,7 +20,7 @@ describe Listing do
 
   describe '#all' do
     it 'displays a list of spaces' do
-      connection = PG.connect(dbname: 'makersbnb_test_database')
+      connection = PG.connect(dbname: 'makersbnb_manager_test')
 
       listing = Listing.create(name: "Woodland Cottage", description: "Idyllic cottage surrounded by nature", price: "£100")
 
