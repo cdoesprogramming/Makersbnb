@@ -9,7 +9,6 @@ class Makersbnb < Sinatra::Base
 
   get '/' do
     @listings = Listing.all
-    p @listings
     erb :index
   end
 
@@ -19,8 +18,6 @@ class Makersbnb < Sinatra::Base
 
   post '/new_listings' do
     Listing.create(name: params[:name], description: params[:description], price: params[:price])
-    #@listings = Listing.create(name: params[:name], description: params[:description], price: params[:price])
-    #@listing = Listing.create
     redirect '/'
   end
 
