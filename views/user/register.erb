@@ -1,0 +1,42 @@
+<% if flash[:notice] %>
+  <p class='flash notice'>
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
+
+
+<h2>Makers BNB</h2>
+ 
+    <h4 class="centered" style="padding:30px; width:400px; text-align:center;"> 
+    <div>
+      <form class="fixed">
+      <a href="/signin">Sign In</a>
+      </form
+    </div>
+     
+      <p>New to Makers BNB - please Register below</p>
+    
+      </div>
+      <div>
+        <form action="/createuser" method="post">
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span style="text-algin:right"><input type="text" name="newname" required></span>
+          </p>
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span style="text-algin:right"><input type="email" name="newemail" required> </span>
+          </p>
+          <p style="text-align:left; padding-left:70px; padding-right:85px;">
+            <span style="text-align:left;">Password:&nbsp;&nbsp;</span>   
+            <span style="text-algin:right"><input type="password" name="newpassword" required></span>
+          </p>
+          <input class="user_button" type="submit" value="Register">
+        </form>
+      </div>
+    </h4>
+ 
+</div>
+
+

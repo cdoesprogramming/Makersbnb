@@ -9,7 +9,7 @@
 </head>
 <header>
     <nav class="nav-bar1" id="home-nav2">
-        <a href="/signin">Sign in</a>
+        <a href="/signout">Sign out</a>
     </nav>
 </header>
 <body id="page-one">
@@ -20,12 +20,23 @@
     </nav>
     <main>
         <section>
-          <h1 class="greeting centered">Welcome</h1>
-          <h2 class="greeting2 centered">Click the button to register</h2>
-          <img class="house-logo photo-position" src="/public/sky.jpg" width="200px">
-            <a href="/createuser">
-                <button class="home-button centered" type="button">Sign up</button>
-            </a>
+        <h2 class="h2-home">Available Spaces</h2>
+        <div class="info-box">
+            <div class="left">
+            <ul>
+              <% @listings.each do |listing| %>
+              <fieldset>
+                <legend>
+                  <li id="unit-no"><%= listing.name %></li>
+                </legend>
+                <li class="p-home"><%= listing.description %></li>
+                <li class="p-home"><%= listing.price %></li>
+              </fieldset>
+              <button class="book-button" type="button">Book</button>
+              <% end %>
+            </ul>
+            </div>
+        </div>
         </section>
     </main>
     <footer>
@@ -34,6 +45,26 @@
 </body>
 
 <style>
+  fieldset {
+    background-color: #eeeeee;
+    border: 2px solid black;
+    border-radius: 8px;
+  }
+
+  legend {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    /* color: #191919; */
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  input {
+    margin: 5px;
+  }
+
   /* Resets  */
   * {
     box-sizing: border-box;
@@ -70,6 +101,10 @@
     transition-duration: 0.4s;
   } */
 
+  ul {
+    list-style-type: none;
+  }
+
   a:hover,
   a:link,
   a:visited {
@@ -92,7 +127,7 @@
     background-color: rgba(0, 255, 0, 0);
   }
 
-  /* nav bar 1 - icons */
+  /* nav bar 1 */
   .nav-bar1 {
     position: fixed;
     width: 100%;
@@ -213,21 +248,6 @@
     float: center;
   }
 
-  .house-logo { 
-    z-index: -1;
-    margin-bottom: 100px;
-  }
-
-  .house-logo2 { 
-    padding-left: 15%;
-    padding-bottom: -15%; 
-    z-index: -1;
-    
-    top: 220px;
-    left: 1000px;
-    position: absolute; 
-  }
-
   /* References link */
   #references {
     color: #191919;
@@ -238,7 +258,7 @@
   }
 
   #references a:hover {
-    color: hotpink;
+    color: white;
   }
 
   .home-button {
@@ -313,7 +333,7 @@
     font-size: 15px;
   }
 
-  /* Listings */
+  /* listings */
   .info-box {
     position: relative;
     margin-left: 15vh;
@@ -390,6 +410,22 @@
     opacity: 0;
   }
 
+  .book-button {
+    background-color: #191919;
+    border: 2px solid #fdfffc;
+    border-radius: 8px;
+    color: #fdfffc;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    transition-duration: 0.4s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .back-button-box {
     position: relative;
     float: left;
@@ -423,41 +459,6 @@
   } 
 
 
-  /* Contact page */
-  .contact-photo {
-    top: 40%;
-    left: 30%;
-    transform: translate(40%, 55%);
-    border-radius: 90px;
-  }
-
-  .contact-copy {
-    transform: translate(52%, -120%);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-h2 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 55px;
-    color: hotpink;
-  }
-
-  .contact-h5 {
-    font-family: 'Pacifico', cursive;
-    font-size: 25px;
-    padding-top: 40px;
-
-  }
-
-  .contact-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    padding-top: 20px;
-  }
-
-
   @media only screen and (max-width:620px) {
 
     /* For mobile phones: */
@@ -468,3 +469,4 @@
     }
   }
 </style>
+

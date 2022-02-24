@@ -1,12 +1,502 @@
-<%= @listing %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%# <link rel="stylesheet" href="../public/stylesheets/main.css" type="text/css"> %>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300;400;900&family=Righteous&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Makersbnb</title>
+</head>
+<header>
+    <nav class="nav-bar1" id="home-nav2">
+        <a href="/signin">Sign in</a>
+    </nav>
+</header>
+<body id="page-one">
+    <nav id="home-nav2" class="nav-bar2">
+        <a href="/listings">Listings</a>
+        <a class="bnb-title" href="/">Makersbnb</a>
+        <a href="/new-listings">Host</a>
+    </nav>
+    <main>
+        <section class="centered2">
+          <h1 class="h2-home">Enter your space details:</h1>
+          <form action='/new-listings' method='post'>
+          <label for='name'>Name of property:</label>
+          <input type='text' name='name'><br><br>
+          <label for='name'>Description:</label>
+          <input type='text' name='description'><br><br>
+          <label for='name'>Price per night:</label>
+          <input type='text' name='price'><br><br>
+          <input class="book-button" type='submit' value='Submit'>
+        </form>
+        </section>
+    </main>
+    <footer>
+        (Copyright © 2022 Makers January Cohort - Camilla, Chloe, Jane, Shirley)
+    </footer>
+</body>
 
-<form action='/new-listings' method='post'>
-  <label for='name'>Name of property:</label>
-  <input type='text' name='name'><br><br>
-  <label for='name'>Description:</label>
-  <input type='text' name='description'><br><br>
-  <label for='name'>Price per night:</label>
-  <input type='text' name='price'><br><br>
-  <input type='submit' value='Submit'>
-</form>
+<style>
+  /* Resets  */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
+
+  html {
+    scroll-behavior: smooth;
+
+  }
+
+  body {
+    background-color: #191919;
+    color: #fdfffc;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 120%;
+  }
+
+  footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: blue;
+    color: #fdfffc;
+    padding: 25px;
+    font-size: 12px;
+    position: fixed;
+  }
+
+  /* footer:hover {
+    background-color: blue;
+    transition-duration: 0.4s;
+  } */
+
+  a:hover,
+  a:link,
+  a:visited {
+    color: #fdfffc
+  }
+
+  #page-one {
+    background-image: url(../public/images/sky.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* Nav transparent background */
+  #home-nav1 {
+    background-color: rgba(0, 255, 0, 0);
+  }
+
+  #home-nav2 {
+    background-color: rgba(0, 255, 0, 0);
+  }
+
+  /* nav bar 1 - icons */
+  .nav-bar1 {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    background-color: #191919;
+    text-align: right;
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 2;
+    display: inline-block;
+    transition-duration: 0.4s;
+  }
+
+  .nav-bar1 a {
+    text-decoration: none;
+    color: #fdfffc;
+    padding-top: 20px;
+    padding-right: 16px;
+    padding-bottom: 15px;
+    padding-left: 16px;
+  }
+
+  .nav-bar1 a:visited,
+  .nav-bar1 a:link {
+    color: #fdfffc;
+  }
+
+  .nav-bar1 a:hover {
+    background-color: blue;
+  }
+
+
+  /* nav bar 2 - normal menu */
+  .nav-bar2 {
+    /* display: block; */
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    overflow: hidden;
+    background-color: #191919;
+    color: #fdfffc;
+    text-align: center;
+    padding-bottom: 10px;
+    display: inline-block;
+    transition-duration: 0.4s;
+    z-index: 1;
+  }
+
+  .nav-bar2 a {
+    text-decoration: none;
+    color: #fdfffc;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+  }
+
+  .nav-bar2 .logo {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .nav-bar2 a:link {
+    color: #fdfffc;
+  }
+
+  .nav-bar2 a:visited {
+    color: #fdfffc;
+  }
+
+  .nav-bar2 a:active {
+    background-color: blue;
+    color: #191919;
+  }
+
+  .nav-bar2 a:hover {
+    background-color: blue;
+  }
+
+  /* Homepage */
+  .centered {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .photo-position {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(10deg);
+  }
+
+  .greeting {
+    font-family: 'Fredoka One', cursive;
+    font-size: 90px;
+    color: blue;
+    bottom: 44px;
+    float: left;
+  }
+
+  .greeting2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    padding-top: 8%;
+    float: center;
+  }
+
+  .bnb-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 30px;
+    color: blue;
+    bottom: 44px;
+    float: center;
+  }
+
+  .house-logo { 
+    z-index: -1;
+    margin-bottom: 100px;
+  }
+
+  .house-logo2 { 
+    padding-left: 15%;
+    padding-bottom: -15%; 
+    z-index: -1;
+    
+    top: 220px;
+    left: 1000px;
+    position: absolute; 
+  }
+
+  /* References link */
+  #references {
+    color: #191919;
+  }  
+
+  #references a {
+    color: #191919;
+  }
+
+  #references a:hover {
+    color: hotpink;
+  }
+
+  .home-button {
+    background-color: #191919;
+    border: 2px solid #fdfffc;
+    border-radius: 8px;
+    color: #fdfffc;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    transition-duration: 0.4s;
+    margin-top: 120px;
+  }
+
+  .home-button:hover {
+    background-color: blue;
+    color: #fdfffc;
+    border-color: blue;
+  }
+
+  /* about page */
+  .main-about {
+    /* border: 2px solid blue; */
+    background-color: #191919;
+    margin-top: 180px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 200px;
+    padding-bottom: 50px;
+  }
+
+  .about-me {
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-right: 100px;
+    /* padding-bottom: 50px; */
+    padding-left: 100px;
+  }
+
+  .about-me-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 60px;
+    padding-top: 10px;
+    color: hotpink
+  }
+
+  #about-me-sub {
+    font-family: 'Pacifico', cursive;
+    padding-bottom: 30px;
+    font-size: 30px;
+    padding-left: 10%;
+  }
+
+  .about-p {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 20px;
+  }
+
+  .reading-about {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    margin-right: 7px;
+    font-size: 15px;
+  }
+
+  /* Listings */
+  .info-box {
+    position: relative;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    margin-top: 180px;
+  }
+
+  .left {
+    position: relative;
+    background-color: #fdfffc;
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+    margin-top: 7px;
+    margin-right: 7px;
+    margin-bottom: 10px;
+    text-align: left;
+    border-radius: 18px;
+  }
+
+  .book-button {
+    background-color: #191919;
+    border: 2px solid #fdfffc;
+    border-radius: 8px;
+    color: #fdfffc;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    transition-duration: 0.4s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .book-button:hover {
+    background-color: blue;
+    border: 2px solid blue;
+  }
+
+  .centered2 {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .h2-home {
+    font-family: 'Fredoka One', cursive;
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 145px;
+    padding-right: 20px;
+    margin-top: 7px;
+    margin-right: 7px;
+    font-size: 50px;
+    color: blue;
+  }
+
+  .h3-home {
+    font-family: 'Fredoka One', cursive;
+    float: left;
+    width: 100%;
+    padding-left: 145px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    margin-top: 7px;
+    margin-right: 7px;
+    font-size: 25px;
+  }
+
+  .reading-time {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    width: 100%;
+    padding-left: 145px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    margin-right: 7px;
+    font-size: 15px;
+  }
+
+  .p-home {
+    padding-bottom: 30px;
+    color: #191919
+  }
+
+  #unit-no {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    color: #191919;
+  }
+
+  #hidden {
+    color: none;
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 0;
+  }
+
+  .back-button-box {
+    position: relative;
+    float: left;
+    /* padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    margin-left: 20px;;
+    margin-top: 7px;
+    margin-bottom: 10px; */
+  }
+
+  .back-button {
+    background-color: #191919;
+    border-radius: 8px;
+    color: #fdfffc;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    transition-duration: 0.4s;
+    margin-top: 20px;
+    margin-left: 140px;
+    padding: 15px;
+  }
+
+  .back-button:hover {
+    background-color: blue;
+    color: #fdfffc;
+    border-color: blue;
+  } 
+
+
+  /* Contact page */
+  .contact-photo {
+    top: 40%;
+    left: 30%;
+    transform: translate(40%, 55%);
+    border-radius: 90px;
+  }
+
+  .contact-copy {
+    transform: translate(52%, -120%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 55px;
+    color: hotpink;
+  }
+
+  .contact-h5 {
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    padding-top: 40px;
+
+  }
+
+  .contact-p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding-top: 20px;
+  }
+
+
+  @media only screen and (max-width:620px) {
+
+    /* For mobile phones: */
+    .left,
+    .middle,
+    .right {
+        width: 100%;
+    }
+  }
+</style>
