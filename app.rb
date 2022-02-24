@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/reloader'
+require './lib/listing'
 require 'sinatra/flash'
-require "sinatra/reloader"
 require 'pg'
 require 'uri'
 require './lib/user'
 require './database_connection_setup'
+
 
 class Makersbnb < Sinatra::Base
   configure :development do
@@ -30,11 +32,6 @@ class Makersbnb < Sinatra::Base
     end
   end
 
-  get '/listings' do
-    @user_email = session[:message]
-    erb :'user/mocklistings'
-  end  
-
   get '/signin' do
     erb :'user/signin'
   end  
@@ -54,6 +51,21 @@ class Makersbnb < Sinatra::Base
     session[:message] = nil
     redirect '/'
   end
+
+  get '/listings' do
+    @listings = Listing.all
+    erb :index
+  end
+  
+  get '/new_listings' do
+    erb :new_listing
+  end
+
+  post '/new_listings' do
+    Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    redirect '/listings'
+  end
+
 
   run! if app_file == $0
 end
