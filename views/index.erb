@@ -1,5 +1,5 @@
 <h1>Makersbnb</h1><br>
-<form action='/listings'>
+<form action='/new-listings'>
   <input type='submit' value='Host'>
 </form><br>
 
@@ -9,31 +9,23 @@
     <legend><%= listing.name %></legend>
     <%= listing.description %>
     <%= listing.price %></p></li>
-  </fieldset>
   <% end %>
-</fieldset>
+  </fieldset>
 </ul>
 
-<html>
-<head>
 <style>
-fieldset {
-  background-color: #eeeeee;
-}
+  fieldset {
+    background-color: #eeeeee;
+  }
 
-legend {
-  background-color: gray;
-  color: white;
-  padding: 5px 10px;
-}
+  legend {
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+  }
 
-input {
-  margin: 5px;
-}
+  input {
+    margin: 5px;
+  }
 </style>
-</head>
-<body>
 
-
-</body>
-</html>

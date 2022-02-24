@@ -8,10 +8,10 @@ describe Listing do
     it 'allows user to post their listing' do
       listing = Listing.create(name: "Woodland Cottage", description: "Idyllic cottage surrounded by nature", price: "£100pn")
        
-      persisted_data = persisted_data(id: listing.id) 
+      persisted_data_listing = persisted_data(id: listing.id) 
 
       expect(listing).to be_a Listing 
-      expect(listing.id).to eq persisted_data.first['id']
+      expect(listing.id).to eq persisted_data_listing.first['id']
       expect(listing.name).to eq 'Woodland Cottage'
       expect(listing.description).to eq 'Idyllic cottage surrounded by nature'
       expect(listing.price).to eq '£100pn'  
