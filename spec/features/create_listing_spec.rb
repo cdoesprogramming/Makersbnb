@@ -1,16 +1,13 @@
 
 feature 'create listing' do
   scenario 'user can create a new listing' do
-    visit('/')
-    click_button('Host')
-    visit('/listings')
+    visit('/new-listings')
     fill_in ('name'), with: 'Woodland Cottage'
     fill_in ('description'), with: 'Idyllic cottage surrounded by nature'
     fill_in ('price'), with: '£100pn'
     click_button('Submit')
 
     expect(page).to have_content 'Makersbnb'
-    expect(page).to have_button 'Host'
   end
 end
 
@@ -20,7 +17,7 @@ feature 'Create a listing' do
     Listing.create(name: 'Country Manor', description: 'Stunning two acre manor', price: '£250pn')
     Listing.create(name: 'Hyde Park Penthouse', description: 'Luxurious penthouse appartment in the heart of London', price: '£400pn')
 
-    visit '/'
+    visit '/listings'
 
     expect(page).to have_content ('Woodland Cottage')
     expect(page).to have_content ('Idyllic cottage surrounded by nature')

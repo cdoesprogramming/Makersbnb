@@ -1,25 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/create_listing_spec.rb": {
+      "/Users/chloestokes/Coding/Makers-2/Course/Projects/Week5/makersbnb/spec/features/create_listing_spec.rb": {
         "lines": [
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/create_user_spec.rb": {
-        "lines": [
-          1,
           1,
           1,
           1,
@@ -28,32 +12,6 @@
           1,
           1,
           null,
-          null
-        ]
-      },
-      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/features/testing_spec.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/user_spec.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           1,
           null,
           null,
@@ -62,6 +20,10 @@
           1,
           1,
           1,
+          1,
+          null,
+          1,
+          null,
           1,
           1,
           1,
@@ -70,18 +32,90 @@
           null
         ]
       },
-      "/Users/shirleymacfarlane/Projects/Makersbnb/spec/database_helpers.rb": {
+      "/Users/chloestokes/Coding/Makers-2/Course/Projects/Week5/makersbnb/spec/features/create_user_spec.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/chloestokes/Coding/Makers-2/Course/Projects/Week5/makersbnb/spec/listing_spec.rb": {
+        "lines": [
+          1,
+          1,
           1,
           1,
           null,
           1,
           1,
           1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/chloestokes/Coding/Makers-2/Course/Projects/Week5/makersbnb/spec/user_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1645613932
+    "timestamp": 1645783703
   }
 }

@@ -57,11 +57,11 @@ class Makersbnb < Sinatra::Base
     erb :index
   end
   
-  get '/new_listings' do
+  get '/new-listings' do
     erb :new_listing
   end
 
-  post '/new_listings' do
+  post '/new-listings' do
     Listing.create(name: params[:name], description: params[:description], price: params[:price])
     redirect '/listings'
   end
