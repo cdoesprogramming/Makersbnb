@@ -9,7 +9,7 @@
 </head>
 <header>
     <nav class="nav-bar1" id="home-nav2">
-        <a href="/signin">Sign in</a>
+        <a href="/signout">Sign out</a>
     </nav>
 </header>
 <body id="page-one">
@@ -21,17 +21,23 @@
         <a href="/host">Host</a>
     </nav>
     <main>
-        <section class="position">
-          <h1 class="h2-home2">Enter your space details:</h1>
-          <form class="centered box-host" action='/new-listing' method='post'>
-            <label for='name'>Name of property:</label>
-            <input type='text' name='name'><br><br>
-            <label for='name'>Description:</label>
-            <input type='text' name='description'><br><br>
-            <label for='name'>Price per night:</label>
-            <input type='text' name='price'><br><br>
-            <input class="home-button" type='submit' value='Submit'>
-          </form>
+        <section>
+        <h2 class="h2-home">Available Spaces</h2>
+        <div class="info-box">
+            <div class="left">
+            <ul>
+              <% @listings.each do |listing| %>
+              <fieldset>
+                <legend>
+                  <li id="unit-no"><%= listing.name %></li>
+                </legend>
+                <li class="p-home"><%= listing.description %></li>
+                <li class="price"><%= listing.price %></li>
+              </fieldset>
+              <button class="book-button" type="button">Book</button>
+              <% end %>
+            </ul>
+            </div>
         </section>
     </main>
      <footer>

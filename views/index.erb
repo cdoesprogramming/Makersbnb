@@ -1,33 +1,36 @@
-<h1>Makersbnb</h1><br>
-<form action='/new-listings'>
-  <input type='submit' value='Host'>
-</form><br>
-
-<ul>
-  <% @listings.each do |listing| %>
-  <fieldset>
-    <legend>
-      <li><%= listing.name %></li>
-    </legend>
-    <li><%= listing.description %></li>
-    <li><%= listing.price %></li>
-  </fieldset>
-  <% end %>
-</ul>
-
-<style>
-  fieldset {
-    background-color: #eeeeee;
-  }
-
-  legend {
-    background-color: gray;
-    color: white;
-    padding: 5px 10px;
-  }
-
-  input {
-    margin: 5px;
-  }
-</style>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300;400;900&family=Righteous&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Makersbnb</title>
+</head>
+<header>
+    <nav class="nav-bar1" id="home-nav2">
+        <a href="/signin">Sign in</a>
+    </nav>
+</header>
+<body id="page-one">
+    <nav id="home-nav2" class="nav-bar2">
+        <a href="/listings">Listings</a>
+        <a class="bnb-title" href="/">
+         <img class="logo" src="house.svg" alt="makersbnb logo">
+        </a>
+        <a href="/host">Host</a>
+    </nav>
+    <main>
+        <section id="image-test">
+          <h1 class="greeting centered">Makersbnb</h1>
+          <h2 class="greeting2 centered">Feel at home, anywhere</h2>
+            <a href="/createuser">
+                <button class="home-button centered" type="button">Sign up</button>
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>(Copyright © 2022 Makers January Cohort - Camilla, Chloe, Jane, Shirley)</p>
+        <p>Background photo by <a href="https://unsplash.com/@xaze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">x</a> on <a href="https://unsplash.com/s/photos/sky?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    </footer>
+</body>

@@ -17,7 +17,11 @@ class Makersbnb < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb :'user/home'
+    erb :index
+  end
+
+  get '/createuser' do
+    erb :'user/register'
   end
 
    post '/createuser' do
@@ -54,14 +58,14 @@ class Makersbnb < Sinatra::Base
 
   get '/listings' do
     @listings = Listing.all
-    erb :index
+    erb :listings
   end
   
-  get '/new-listings' do
+  get '/host' do
     erb :new_listing
   end
 
-  post '/new-listings' do
+  post '/new-listing' do
     Listing.create(name: params[:name], description: params[:description], price: params[:price])
     redirect '/listings'
   end
