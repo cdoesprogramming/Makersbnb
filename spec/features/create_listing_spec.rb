@@ -1,16 +1,3 @@
-
-feature 'create listing' do
-  scenario 'user can create a new listing' do
-    visit('/new-listings')
-    fill_in ('name'), with: 'Woodland Cottage'
-    fill_in ('description'), with: 'Idyllic cottage surrounded by nature'
-    fill_in ('price'), with: '£100pn'
-    click_button('Submit')
-
-    expect(page).to have_content 'Makersbnb'
-  end
-end
-
 feature 'Create a listing' do
   scenario 'User can create a new listing' do
     Listing.create(name: 'Woodland Cottage', description: 'Idyllic cottage surrounded by nature', price: '£100pn')

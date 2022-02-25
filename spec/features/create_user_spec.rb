@@ -9,6 +9,6 @@ feature 'create user' do
     fill_in 'newpassword', with: 'Woodlandcottage'
     click_button('Register')
 
-    expect(page).to have_content 'Makersbnb'
+    expect(page).to have_content 'Available Spaces'
   end
  end

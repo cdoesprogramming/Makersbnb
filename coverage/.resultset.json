@@ -3,19 +3,6 @@
     "coverage": {
       "/Users/chloestokes/Coding/Makers-2/Course/Projects/Week5/makersbnb/spec/features/create_listing_spec.rb": {
         "lines": [
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
           1,
           1,
           1,
@@ -120,6 +107,6 @@
         ]
       }
     },
-    "timestamp": 1645745958
+    "timestamp": 1645798399
   }
 }

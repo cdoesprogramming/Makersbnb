@@ -1,25 +1,35 @@
 <% if flash[:notice] %>
-  <p class='flash notice'>
+  <p class='centered flash notice'>
     <%= flash[:notice] %>
   </p>
 <% end %>
 
-
-
-<h2>Makers BNB</h2>
- 
-    <h4 class="centered" style="padding:30px; width:400px; text-align:center;"> 
-    <div>
-      <form class="fixed">
-      <a href="/signin">Sign In</a>
-      </form
-    </div>
-     
-      <p>New to Makers BNB - please Register below</p>
-    
-      </div>
-      <div>
-        <form action="/createuser" method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300;400;900&family=Righteous&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Makersbnb</title>
+</head>
+<header>
+    <nav class="nav-bar1" id="home-nav2">
+        <a href="/signout">Sign out</a>
+    </nav>
+</header>
+<body id="page-one">
+    <nav id="home-nav2" class="nav-bar2">
+        <a href="/listings">Listings</a>
+        <a class="bnb-title" href="/">
+         <img class="logo" src="house.svg" alt="makersbnb logo">
+        </a>
+        <a href="/host">Host</a>
+    </nav>
+    <main>
+      <section class="position">
+       <h3 class="h2-home2">New to Makers BNB<br> - please register below</h3>
+        <form class="centered box-register" action="/createuser" method="post">
           <p style="text-align:left; padding-left:70px; padding-right:85px;">
             <span style="text-align:left;">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <span style="text-algin:right"><input type="text" name="newname" required></span>
@@ -32,11 +42,14 @@
             <span style="text-align:left;">Password:&nbsp;&nbsp;</span>   
             <span style="text-algin:right"><input type="password" name="newpassword" required></span>
           </p>
-          <input class="user_button" type="submit" value="Register">
+          <span style="text-align:left;"><input class="home-button centered" type="submit" value="Register"></span>
         </form>
-      </div>
-    </h4>
- 
-</div>
+    </main>
+    <footer>
+        <p>(Copyright © 2022 Makers January Cohort - Camilla, Chloe, Jane, Shirley)</p>
+        <p>Background photo by <a href="https://unsplash.com/@xaze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">x</a> on <a href="https://unsplash.com/s/photos/sky?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    </footer>
+</body>
+
 
 
